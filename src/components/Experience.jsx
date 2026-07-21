@@ -6,9 +6,9 @@ const experiences = [
     company: 'I-Hub Robotics',
     position: 'Embedded Systems Intern',
     icon: '🔌',
-    gradient: 'from-blue-500 to-cyan-500',
-    bg: 'bg-blue-50 dark:bg-blue-900/10',
-    border: 'border-blue-200 dark:border-blue-800/40',
+    gradient: 'from-brand-400 to-brand-600',
+    bg: 'bg-brand-50 dark:bg-brand-900/10',
+    border: 'border-brand-200 dark:border-brand-800/40',
     description: [
       'Worked with microcontrollers, sensors, and IoT projects.',
       'Developed embedded applications and hardware prototypes.',
@@ -19,9 +19,9 @@ const experiences = [
     company: 'I-Hub Robotics',
     position: 'AI & Robotics Intern',
     icon: '🤖',
-    gradient: 'from-purple-500 to-violet-600',
-    bg: 'bg-purple-50 dark:bg-purple-900/10',
-    border: 'border-purple-200 dark:border-purple-800/40',
+    gradient: 'from-brand-500 to-brand-700',
+    bg: 'bg-brand-50 dark:bg-brand-900/10',
+    border: 'border-brand-200 dark:border-brand-800/40',
     description: [
       'Built AI and robotics-based applications.',
       'Worked on computer vision and automation projects.',
@@ -32,9 +32,9 @@ const experiences = [
     company: 'IPCS Global, Chennai',
     position: 'Python for Data Science Intern',
     icon: '📊',
-    gradient: 'from-orange-500 to-amber-500',
-    bg: 'bg-orange-50 dark:bg-orange-900/10',
-    border: 'border-orange-200 dark:border-orange-800/40',
+    gradient: 'from-brand-300 to-brand-500',
+    bg: 'bg-brand-50 dark:bg-brand-900/10',
+    border: 'border-brand-100 dark:border-brand-800/40',
     description: [
       'Performed data analysis using Python libraries.',
       'Worked with Pandas, NumPy, and Matplotlib.',
@@ -53,7 +53,7 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white"
         >
-          Experience<span className="text-purple-600">.</span>
+          Experience<span className="text-brand-600">.</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 10 }}

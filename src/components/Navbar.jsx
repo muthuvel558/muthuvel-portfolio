@@ -37,7 +37,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm' : 'py-6 bg-transparent'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <a href="#home" className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Muthuvel V<span className="text-purple-600">.</span>
+          Muthuvel V<span className="text-brand-600">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -46,10 +46,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             <a
               key={link.name}
               href={`#${link.to}`}
-              className={`relative group ${activeSection === link.to ? 'text-purple-600 dark:text-purple-400 font-medium' : 'text-gray-600 dark:text-gray-300'} hover:text-purple-600 dark:hover:text-purple-400 cursor-pointer transition-colors py-1`}
+              className={`relative group ${activeSection === link.to ? 'text-brand-600 dark:text-brand-400 font-medium' : 'text-gray-600 dark:text-gray-300'} hover:text-brand-600 dark:hover:text-brand-400 cursor-pointer transition-colors py-1`}
             >
               {link.name}
-              <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-purple-600 transform origin-left transition-transform duration-300 ${activeSection === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+              <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-brand-600 transform origin-left transition-transform duration-300 ${activeSection === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </a>
           ))}
           <button
@@ -82,10 +82,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               key={link.name}
               href={`#${link.to}`}
               onClick={() => setIsOpen(false)}
-              className={`relative group inline-block w-max ${activeSection === link.to ? 'text-purple-600' : 'text-gray-600 dark:text-gray-300'} hover:text-purple-600 text-lg cursor-pointer block pb-1`}
+              className={`relative group inline-block w-max ${activeSection === link.to ? 'text-brand-600' : 'text-gray-600 dark:text-gray-300'} hover:text-brand-600 text-lg cursor-pointer block pb-1`}
             >
               {link.name}
-              <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-purple-600 transform origin-left transition-transform duration-300 ${activeSection === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+              <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-brand-600 transform origin-left transition-transform duration-300 ${activeSection === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
             </a>
           ))}
         </div>

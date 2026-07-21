@@ -37,11 +37,11 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-3">
             Who I Am
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            About Me<span className="text-purple-600">.</span>
+            About Me<span className="text-brand-600">.</span>
           </h2>
         </motion.div>
 
@@ -60,7 +60,7 @@ const About = () => {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
               I'm an aspiring{' '}
-              <span className="font-semibold text-purple-600 dark:text-purple-400">
+              <span className="font-semibold text-brand-600 dark:text-brand-400">
                 AI &amp; Full Stack Developer
               </span>{' '}
               with a strong foundation in machine learning, computer vision, and modern web technologies. I take complex problems and translate them into clean, functional solutions.
@@ -80,7 +80,7 @@ const About = () => {
                   transition={{ delay: 0.1 * i }}
                   className="flex flex-col items-center justify-center px-5 py-4 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 min-w-[90px]"
                 >
-                  <p className="text-3xl font-black text-purple-600 dark:text-purple-400">{s.value}</p>
+                  <p className="text-3xl font-black text-brand-600 dark:text-brand-400">{s.value}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-1 text-center">{s.label}</p>
                 </motion.div>
               ))}
@@ -104,7 +104,7 @@ const About = () => {
                 transition={{ delay: 0.1 * i }}
                 className="flex items-start gap-4 p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-xl flex-shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center text-xl flex-shrink-0">
                   {f.icon}
                 </div>
                 <div>

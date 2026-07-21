@@ -6,7 +6,7 @@ export const projects = [
     category: ['Machine Learning', 'Recommendation System'],
     shortDescription: 'Intelligent movie recommendation engine using Content-Based Filtering that suggests movies based on genres, cast, crew, and metadata similarity.',
     image: '/project_movie.png',
-    gradient: 'from-violet-600 to-purple-900',
+    gradient: 'from-brand-600 to-brand-900',
     tags: ['Python', 'Scikit-Learn', 'Streamlit', 'TMDB API'],
     detailedDescription: `Developed an intelligent movie recommendation system that suggests movies based on user preferences using Content-Based Filtering techniques. The system analyzes movie metadata such as genres, keywords, cast, crew, and overview to calculate similarity between movies using cosine similarity and TF-IDF vectorization to generate personalized recommendations. The application was built with a user-friendly Streamlit interface and integrated with the TMDB API to fetch real-time movie posters and metadata.`,
     problemStatement: `Users often struggle to find movies that match their interests due to the vast number of available choices on streaming platforms. Browsing through thousands of titles is time-consuming, and generic recommendations from platforms often miss personal preferences.`,
@@ -28,8 +28,8 @@ export const projects = [
     ],
     technologies: [
       { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
-      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
-      { name: 'NumPy', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-brand-700 dark:bg-brand-900/30 dark:text-indigo-300' },
+      { name: 'NumPy', color: 'bg-cyan-100 text-brand-700 dark:bg-cyan-900/30 dark:text-cyan-300' },
       { name: 'Scikit-Learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
       { name: 'Streamlit', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' },
       { name: 'TMDB API', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' }
@@ -70,7 +70,7 @@ export const projects = [
     category: ['Full Stack Web Development'],
     shortDescription: 'Modern, responsive developer portfolio built with React.js, Tailwind CSS, and Framer Motion with dark/light mode and smooth animations.',
     image: '/project_portfolio.png',
-    gradient: 'from-purple-600 to-pink-700',
+    gradient: 'from-brand-600 to-pink-700',
     tags: ['React.js', 'Tailwind CSS', 'Framer Motion'],
     detailedDescription: `Designed and developed a modern, responsive portfolio website to showcase my skills, projects, experience, and achievements. The website serves as my professional online presence and personal brand. Built with React.js and Tailwind CSS for a component-based, maintainable codebase and integrated Framer Motion for rich, scroll-triggered animations and smooth page transitions.`,
     problemStatement: `Recruiters and clients need a centralized, professional platform to explore a developer's skills, experience, and projects. A generic LinkedIn profile or simple resume is not enough to showcase technical capabilities and design sensibility.`,
@@ -91,9 +91,9 @@ export const projects = [
       { icon: '📧', text: 'Contact section' }
     ],
     technologies: [
-      { name: 'React.js', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'React.js', color: 'bg-cyan-100 text-brand-700 dark:bg-cyan-900/30 dark:text-cyan-300' },
       { name: 'Tailwind CSS', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' },
-      { name: 'Framer Motion', color: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' },
+      { name: 'Framer Motion', color: 'bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-300' },
       { name: 'JavaScript', color: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300' },
       { name: 'Vite', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
       { name: 'React Icons', color: 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300' }
@@ -134,7 +134,7 @@ export const projects = [
     category: ['Artificial Intelligence', 'Generative AI'],
     shortDescription: 'Intelligent conversational AI chatbot powered by Large Language Models, capable of context-aware multi-topic responses via NLP and API integration.',
     image: '/project_chatbot.png',
-    gradient: 'from-blue-700 to-indigo-900',
+    gradient: 'from-blue-700 to-brand-900',
     tags: ['Python', 'LLM APIs', 'NLP', 'Streamlit'],
     detailedDescription: `Developed an AI-powered chatbot capable of understanding and responding to user queries using Large Language Models (LLMs) and Natural Language Processing techniques. The chatbot maintains conversation context across multiple turns, enabling coherent, human-like dialogue. The system was built with a FastAPI backend for the API layer and a Streamlit frontend for the interactive chat interface.`,
     problemStatement: `Users require intelligent conversational systems that can provide instant assistance and answer queries efficiently. Traditional rule-based chatbots are rigid and fail to understand nuanced user intent or maintain conversational context.`,
@@ -157,7 +157,7 @@ export const projects = [
     technologies: [
       { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
       { name: 'LLM APIs', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' },
-      { name: 'NLP', color: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' },
+      { name: 'NLP', color: 'bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-300' },
       { name: 'Streamlit', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' },
       { name: 'FastAPI', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' },
       { name: 'REST API', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' }
@@ -219,8 +219,8 @@ export const projects = [
     ],
     technologies: [
       { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
-      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
-      { name: 'NumPy', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-brand-700 dark:bg-brand-900/30 dark:text-indigo-300' },
+      { name: 'NumPy', color: 'bg-cyan-100 text-brand-700 dark:bg-cyan-900/30 dark:text-cyan-300' },
       { name: 'Scikit-Learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
       { name: 'Matplotlib', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
       { name: 'Seaborn', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' }
@@ -279,8 +279,8 @@ export const projects = [
     ],
     technologies: [
       { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
-      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
-      { name: 'NumPy', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-brand-700 dark:bg-brand-900/30 dark:text-indigo-300' },
+      { name: 'NumPy', color: 'bg-cyan-100 text-brand-700 dark:bg-cyan-900/30 dark:text-cyan-300' },
       { name: 'Scikit-Learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
       { name: 'Matplotlib', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
       { name: 'Seaborn', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' }
@@ -342,8 +342,8 @@ export const projects = [
       { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
       { name: 'TensorFlow', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
       { name: 'Keras', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' },
-      { name: 'NumPy', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
-      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
+      { name: 'NumPy', color: 'bg-cyan-100 text-brand-700 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-brand-700 dark:bg-brand-900/30 dark:text-indigo-300' },
       { name: 'Matplotlib', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' }
     ],
     architecture: [
@@ -400,9 +400,9 @@ export const projects = [
     ],
     technologies: [
       { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
-      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-brand-700 dark:bg-brand-900/30 dark:text-indigo-300' },
       { name: 'Scikit-Learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
-      { name: 'NumPy', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'NumPy', color: 'bg-cyan-100 text-brand-700 dark:bg-cyan-900/30 dark:text-cyan-300' },
       { name: 'Seaborn', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' },
       { name: 'Matplotlib', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' }
     ],

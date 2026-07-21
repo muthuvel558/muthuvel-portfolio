@@ -42,7 +42,7 @@ const socials = [
     handle: '@muthuvel',
     href: 'https://instagram.com',
     icon: <FaInstagram size={26} />,
-    gradient: 'from-pink-500 via-purple-500 to-orange-400',
+    gradient: 'from-pink-500 via-brand-500 to-orange-400',
     bg: 'bg-pink-50 dark:bg-pink-900/10',
     border: 'border-pink-200 dark:border-pink-800/40',
     hover: 'hover:shadow-pink-500/20',
@@ -63,7 +63,7 @@ const Contact = () => {
     <section id="contact" className="py-24 relative overflow-hidden">
 
       {/* Background Glow Blobs */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-brand-400/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -75,9 +75,9 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-purple-600 dark:text-purple-400 font-semibold mb-2 tracking-widest text-sm uppercase">Say Hello</p>
+          <p className="text-brand-600 dark:text-brand-400 font-semibold mb-2 tracking-widest text-sm uppercase">Say Hello</p>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch<span className="text-purple-600">.</span>
+            Get In Touch<span className="text-brand-600">.</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
             I'm always open to discussing new projects, internship opportunities, and creative ideas. Let's build something amazing together!
@@ -94,30 +94,30 @@ const Contact = () => {
             className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-14 flex-wrap"
           >
             <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
-              <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                <FiMapPin className="text-purple-600" size={16} />
+              <div className="w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
+                <FiMapPin className="text-brand-600" size={16} />
               </div>
               <span className="text-gray-700 dark:text-gray-300 font-medium">Tamil Nadu, India</span>
             </div>
             <div
               onClick={copyEmail}
-              className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 transition-colors group"
+              className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer hover:border-brand-400 dark:hover:border-brand-500 transition-colors group"
             >
-              <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                <FiMail className="text-purple-600" size={16} />
+              <div className="w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
+                <FiMail className="text-brand-600" size={16} />
               </div>
-              <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 {copied ? '✅ Copied!' : 'muthuvelv3032@gmail.com'}
               </span>
             </div>
             <a
               href="tel:+916369737765"
-              className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-500 transition-colors group"
+              className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700 hover:border-brand-400 dark:hover:border-brand-500 transition-colors group"
             >
-              <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                <FiPhone className="text-purple-600" size={16} />
+              <div className="w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
+                <FiPhone className="text-brand-600" size={16} />
               </div>
-              <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <span className="text-gray-700 dark:text-gray-300 font-medium group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                 +91 6369737765
               </span>
             </a>
@@ -163,7 +163,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="relative rounded-3xl overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600" />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-600 via-brand-600 to-brand-500" />
             <div className="absolute inset-0 opacity-20"
               style={{
                 backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)',
@@ -173,12 +173,12 @@ const Contact = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 px-10 py-10">
               <div className="text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Ready to collaborate?</h3>
-                <p className="text-purple-200">Let's turn your idea into a real, impactful project.</p>
+                <p className="text-brand-200">Let's turn your idea into a real, impactful project.</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
                 <a
                   href="mailto:muthuvelv3032@gmail.com"
-                  className="flex items-center justify-center gap-2 px-7 py-3 bg-white text-purple-700 font-bold rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300"
+                  className="flex items-center justify-center gap-2 px-7 py-3 bg-white text-brand-700 font-bold rounded-full hover:scale-105 hover:shadow-xl transition-all duration-300"
                 >
                   <FiSend size={18} /> Send a Message
                 </a>

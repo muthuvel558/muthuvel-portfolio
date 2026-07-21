@@ -38,7 +38,7 @@ const Skills = () => {
       title: 'AI & Data Science',
       skills: [
         { name: 'NumPy', icon: <SiNumpy />, color: 'text-blue-400' },
-        { name: 'Pandas', icon: <SiPandas />, color: 'text-indigo-800 dark:text-indigo-400' },
+        { name: 'Pandas', icon: <SiPandas />, color: 'text-brand-700 dark:text-brand-400' },
         { name: 'Matplotlib', icon: <VscGraphLine />, color: 'text-blue-500' },
         { name: 'Scikit-Learn', icon: <SiScikitlearn />, color: 'text-orange-500' },
         { name: 'TensorFlow', icon: <SiTensorflow />, color: 'text-orange-400' },
@@ -66,7 +66,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white"
         >
-          Skills<span className="text-purple-600">.</span>
+          Skills<span className="text-brand-600">.</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -79,14 +79,14 @@ const Skills = () => {
               transition={{ delay: index * 0.1 }}
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
             >
-              <h3 className="text-xl font-bold mb-6 text-purple-600 dark:text-purple-400 border-b-2 border-purple-100 dark:border-purple-900/30 pb-2">{category.title}</h3>
+              <h3 className="text-xl font-bold mb-6 text-brand-600 dark:text-brand-400 border-b-2 border-brand-100 dark:border-brand-900/30 pb-2">{category.title}</h3>
               <ul className="space-y-4">
                 {category.skills.map((skill, i) => (
                   <li key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-medium group">
                     <span className={`text-2xl transition-transform transform group-hover:scale-110 ${skill.color}`}>
                       {skill.icon}
                     </span>
-                    <span className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                    <span className="group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                       {skill.name}
                     </span>
                   </li>

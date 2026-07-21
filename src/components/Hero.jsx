@@ -13,11 +13,11 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
         >
           <p className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-400 mb-4">
-            Hey, I'm Muthuvel V 👋
+            Hey, I'm Muthuvel V
           </p>
           
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            <span className="text-purple-600 dark:text-purple-400">
+            <span className="text-brand-600 dark:text-brand-400">
               AI & Full Stack Developer
             </span>
           </h1>
@@ -29,13 +29,13 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4">
             <a 
               href="#"
-              className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-purple-500/30"
+              className="px-8 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-brand-500/30"
             >
               Download Resume
             </a>
             <a 
               href="#projects"
-              className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 hover:border-purple-600 dark:hover:border-purple-400 rounded-lg font-medium transition-colors"
+              className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 hover:border-brand-600 dark:hover:border-brand-400 rounded-lg font-medium transition-colors"
             >
               View Projects
             </a>
@@ -51,9 +51,9 @@ const Hero = () => {
           <div className="relative w-80 h-80 md:w-[420px] md:h-[420px]">
 
             {/* Glow orbs */}
-            <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute top-10 left-10 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl animate-pulse delay-700" />
-            <div className="absolute bottom-10 right-10 w-24 h-24 bg-cyan-500/15 rounded-full blur-2xl animate-pulse delay-1000" />
+            <div className="absolute inset-0 bg-brand-500/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute top-10 left-10 w-32 h-32 bg-brand-500/20 rounded-full blur-2xl animate-pulse delay-700" />
+            <div className="absolute bottom-10 right-10 w-24 h-24 bg-brand-400/15 rounded-full blur-2xl animate-pulse delay-1000" />
 
             {/* Main floating image */}
             <motion.div
@@ -72,30 +72,30 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
-              className="absolute top-4 -left-4 md:-left-8 flex items-center gap-2 bg-white dark:bg-gray-800 border border-purple-200 dark:border-purple-800 rounded-full px-4 py-2 shadow-lg shadow-purple-500/20"
+              className="absolute top-4 -left-4 md:-left-8 flex items-center gap-2 bg-white dark:bg-gray-800 border border-brand-200 dark:border-brand-800 rounded-full px-4 py-2 shadow-lg shadow-brand-500/20"
             >
-              <span className="text-lg">🤖</span>
-              <span className="text-sm font-bold text-purple-600 dark:text-purple-400">Artificial Intelligence</span>
+              <span className="w-2 h-2 rounded-full bg-brand-600 flex-shrink-0" />
+              <span className="text-sm font-bold text-brand-600 dark:text-brand-400">Artificial Intelligence</span>
             </motion.div>
 
             {/* Floating badge — ML */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute bottom-12 -left-4 md:-left-10 flex items-center gap-2 bg-white dark:bg-gray-800 border border-indigo-200 dark:border-indigo-800 rounded-full px-4 py-2 shadow-lg shadow-indigo-500/20"
+              className="absolute bottom-12 -left-4 md:-left-10 flex items-center gap-2 bg-white dark:bg-gray-800 border border-brand-200 dark:border-brand-700 rounded-full px-4 py-2 shadow-lg shadow-brand-500/20"
             >
-              <span className="text-lg">📈</span>
-              <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">Machine Learning</span>
+              <span className="w-2 h-2 rounded-full bg-brand-500 flex-shrink-0" />
+              <span className="text-sm font-bold text-brand-500 dark:text-brand-400">Machine Learning</span>
             </motion.div>
 
             {/* Floating badge — DS */}
             <motion.div
               animate={{ y: [0, -9, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute bottom-4 -right-4 md:-right-8 flex items-center gap-2 bg-white dark:bg-gray-800 border border-cyan-200 dark:border-cyan-800 rounded-full px-4 py-2 shadow-lg shadow-cyan-500/20"
+              className="absolute bottom-4 -right-4 md:-right-8 flex items-center gap-2 bg-white dark:bg-gray-800 border border-brand-200 dark:border-brand-700 rounded-full px-4 py-2 shadow-lg shadow-brand-400/20"
             >
-              <span className="text-lg">📊</span>
-              <span className="text-sm font-bold text-cyan-600 dark:text-cyan-400">Data Science</span>
+              <span className="w-2 h-2 rounded-full bg-brand-400 flex-shrink-0" />
+              <span className="text-sm font-bold text-brand-500 dark:text-cyan-400">Data Science</span>
             </motion.div>
 
           </div>
