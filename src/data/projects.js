@@ -431,5 +431,163 @@ export const projects = [
     ],
     github: '#',
     demo: '#'
+  },
+  {
+    id: 101,
+    type: 'Machine Learning',
+    title: 'House Price Prediction',
+    category: ['Machine Learning'],
+    shortDescription: 'Built a regression model to predict house prices using property features with data preprocessing and model evaluation.',
+    image: '/project_house.png',
+    gradient: 'from-emerald-500 to-teal-700',
+    tags: ['Python', 'Scikit-learn', 'Linear Regression', 'Pandas'],
+    detailedDescription: 'Built a regression model to predict house prices using property features. Applied comprehensive data preprocessing including handling missing values, feature scaling, and encoding categorical variables. Evaluated the model using RMSE, MAE, and R² score metrics.',
+    problemStatement: 'Predicting house prices accurately based on available property features to assist buyers and sellers in making informed decisions.',
+    features: [
+      { icon: '🏠', text: 'Linear Regression pipeline for house price prediction' },
+      { icon: '🔧', text: 'Data preprocessing: missing values, scaling, encoding' },
+      { icon: '📊', text: 'Model evaluation using RMSE, MAE, and R² metrics' },
+      { icon: '📈', text: 'Feature importance analysis' }
+    ],
+    technologies: [
+      { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
+      { name: 'Scikit-learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
+      { name: 'NumPy', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300' },
+      { name: 'Matplotlib', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' }
+    ],
+    outcomes: [
+      'Achieved strong R² score on test data',
+      'End-to-end preprocessing and evaluation pipeline',
+      'Feature importance insights for property pricing'
+    ],
+    github: '#',
+    demo: '#'
+  },
+  {
+    id: 102,
+    type: 'Machine Learning',
+    title: 'Customer Purchase Prediction',
+    category: ['Machine Learning'],
+    shortDescription: 'Developed a classification model to predict customer purchasing behavior based on demographic and behavioral data.',
+    image: '/project_customer.png',
+    gradient: 'from-brand-500 to-purple-700',
+    tags: ['Python', 'Logistic Regression', 'Scikit-learn', 'Pandas'],
+    detailedDescription: 'Developed a logistic regression classification model to predict whether a customer will make a purchase based on demographic and behavioral data. Applied EDA, feature selection, and cross-validation for reliable model performance.',
+    problemStatement: 'Identifying customers likely to purchase a product enables targeted marketing and reduces campaign costs.',
+    features: [
+      { icon: '🛒', text: 'Logistic Regression for purchase behavior classification' },
+      { icon: '📊', text: 'EDA and feature selection on customer dataset' },
+      { icon: '✅', text: 'Model evaluation with Accuracy, Precision, Recall, F1' },
+      { icon: '🎯', text: 'Cross-validation for generalization' }
+    ],
+    technologies: [
+      { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
+      { name: 'Scikit-learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
+      { name: 'Logistic Regression', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' }
+    ],
+    outcomes: [
+      'Reliable purchase prediction with strong classification metrics',
+      'Insights into key behavioral and demographic drivers',
+      'Scalable pipeline for real-world marketing use'
+    ],
+    github: '#',
+    demo: '#'
+  },
+  {
+    id: 103,
+    type: 'Machine Learning',
+    title: 'Employee Attrition Prediction',
+    category: ['Machine Learning'],
+    shortDescription: 'Created a predictive model to identify employees at risk of attrition using HR data.',
+    image: '/project_attrition.png',
+    gradient: 'from-amber-500 to-red-600',
+    tags: ['Python', 'Logistic Regression', 'HR Analytics', 'Scikit-learn'],
+    detailedDescription: 'Built a logistic regression model on IBM HR Analytics dataset to predict employee attrition. Performed EDA to uncover key drivers of attrition and evaluated model performance to help HR teams take proactive retention measures.',
+    problemStatement: 'High employee turnover is costly. Identifying at-risk employees early enables HR teams to take proactive retention measures.',
+    features: [
+      { icon: '👤', text: 'Employee attrition prediction using Logistic Regression' },
+      { icon: '🔍', text: 'EDA to identify key drivers of attrition' },
+      { icon: '📈', text: 'Precision, Recall and ROC-AUC evaluation' },
+      { icon: '🏢', text: 'Applied on IBM HR Analytics dataset' }
+    ],
+    technologies: [
+      { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
+      { name: 'Scikit-learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' },
+      { name: 'Matplotlib', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' }
+    ],
+    outcomes: [
+      'Identified top attrition risk factors for HR teams',
+      'High ROC-AUC score for reliable risk classification',
+      'Actionable insights to reduce employee turnover'
+    ],
+    github: '#',
+    demo: '#'
+  },
+  {
+    id: 104,
+    type: 'Deep Learning',
+    title: 'Product Demand Forecasting (LSTM)',
+    category: ['Deep Learning'],
+    shortDescription: 'Developed an LSTM-based deep learning model to forecast product demand from historical sales data.',
+    image: '/project_lstm.png',
+    gradient: 'from-teal-500 to-indigo-700',
+    tags: ['Python', 'LSTM', 'TensorFlow', 'Keras', 'Time Series'],
+    detailedDescription: 'Developed an LSTM-based recurrent neural network to forecast product demand from historical sales time-series data. Performed data preprocessing, sequence generation, and model training with hyperparameter tuning.',
+    problemStatement: 'Inaccurate demand forecasting leads to overstocking or stockouts. Deep learning on time-series data provides more accurate predictions than traditional methods.',
+    features: [
+      { icon: '📦', text: 'LSTM-based demand forecasting from historical sales data' },
+      { icon: '📊', text: 'Time-series preprocessing and sequence generation' },
+      { icon: '⚙️', text: 'Hyperparameter tuning for LSTM architecture' },
+      { icon: '📉', text: 'Evaluation with RMSE and MAE metrics' }
+    ],
+    technologies: [
+      { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
+      { name: 'TensorFlow', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
+      { name: 'Keras', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' },
+      { name: 'LSTM', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' },
+      { name: 'Pandas', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300' }
+    ],
+    outcomes: [
+      'Accurate demand forecasting with low RMSE',
+      'Captures seasonal patterns in sales data',
+      'Scalable LSTM architecture for multi-product forecasting'
+    ],
+    github: '#',
+    demo: '#'
+  },
+  {
+    id: 105,
+    type: 'NLP',
+    title: 'AI Resume Analyzer',
+    category: ['NLP', 'Machine Learning'],
+    shortDescription: 'Built an NLP-based resume screening system to analyze resumes, compare with job descriptions, and generate ATS compatibility scores.',
+    image: '/project_resume.png',
+    gradient: 'from-brand-600 to-emerald-700',
+    tags: ['Python', 'NLP', 'Streamlit', 'Scikit-learn', 'spaCy'],
+    detailedDescription: 'Built an NLP-based resume screening system that analyzes resumes, compares them with job descriptions, and generates ATS compatibility scores. Used text vectorization, keyword extraction, and similarity scoring to provide actionable improvement suggestions.',
+    problemStatement: 'Job seekers struggle to optimize their resumes for ATS systems. A tool that analyzes resume-JD alignment helps improve shortlisting chances.',
+    features: [
+      { icon: '📄', text: 'Resume parsing and keyword extraction using NLP' },
+      { icon: '🤖', text: 'ATS compatibility scoring against job descriptions' },
+      { icon: '🌐', text: 'Interactive Streamlit web application' },
+      { icon: '💡', text: 'Actionable resume improvement suggestions' }
+    ],
+    technologies: [
+      { name: 'Python', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' },
+      { name: 'NLP', color: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300' },
+      { name: 'Streamlit', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' },
+      { name: 'Scikit-learn', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300' },
+      { name: 'spaCy', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' }
+    ],
+    outcomes: [
+      'Automated ATS compatibility scoring for any resume',
+      'Keyword gap analysis between resume and job description',
+      'Deployed as interactive Streamlit web application'
+    ],
+    github: '#',
+    demo: '#'
   }
 ];

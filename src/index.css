@@ -5,12 +5,114 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', 'Inter', sans-serif;
+  }
+
   body {
-    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+    font-family: 'Inter', sans-serif;
+    background-color: #07080a;
+    color: #e2e8f0;
+    overflow-x: hidden;
   }
+
   ::selection {
-    background-color: #3dab8e33;
-    color: #1f7a60;
+    background-color: #ccff00;
+    color: #000000;
   }
+
+  /* Cyber Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07080a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2736;
+    border-radius: 9999px;
+    border: 1px solid rgba(204, 255, 0, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ccff00;
+    box-shadow: 0 0 10px #ccff00;
+  }
+}
+
+@layer components {
+  /* Cyber HUD card */
+  .hud-card {
+    background: rgba(12, 14, 20, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hud-card:hover {
+    border-color: rgba(204, 255, 0, 0.35);
+    box-shadow: 0 0 25px -5px rgba(204, 255, 0, 0.15);
+  }
+
+  /* Glass navigation */
+  .cyber-nav {
+    background: rgba(7, 8, 10, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* Laser line effects */
+  .laser-beam-1 {
+    background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.8), transparent);
+    filter: drop-shadow(0 0 8px #ccff00) drop-shadow(0 0 20px rgba(204, 255, 0, 0.5));
+  }
+
+  .laser-beam-angled {
+    background: linear-gradient(135deg, transparent 0%, rgba(204, 255, 0, 0.2) 20%, rgba(204, 255, 0, 0.9) 50%, rgba(204, 255, 0, 0.2) 80%, transparent 100%);
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.5), 0 0 35px rgba(204, 255, 0, 0.25);
+  }
+
+  /* Dark grid pattern */
+  .cyber-grid {
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  /* Cyber cross pattern */
+  .cyber-dots {
+    background-image: radial-gradient(rgba(204, 255, 0, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Badge Neon */
+  .badge-neon {
+    background: rgba(204, 255, 0, 0.08);
+    color: #ccff00;
+    border: 1px solid rgba(204, 255, 0, 0.25);
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  }
+}
+
+/* Lenis scroll CSS support */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

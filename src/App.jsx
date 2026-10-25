@@ -1,37 +1,76 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import Lenis from 'lenis';
+import CyberParallaxBackground from './components/CyberParallaxBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
+import TechnicalExperience from './components/TechnicalExperience';
+import Education from './components/Education';
+import Certifications from './components/Certifications';
+import Achievements from './components/Achievements';
+import TechStack from './components/TechStack';
+import AIJourney from './components/AIJourney';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './index.css';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Apply dark mode class to html element//
+  // Always lock dark mode for cyber theme
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('dark');
+  }, []);
+
+  // Lenis smooth scroll setup
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.8,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
-  }, [darkMode]);
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
   return (
-    <div className="font-sans antialiased text-gray-900 dark:text-gray-100 min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <main>
+    <div className="relative font-sans antialiased text-slate-100 min-h-screen bg-[#07080a] selection:bg-[#ccff00] selection:text-black">
+      {/* Cyber Parallax Background with Intersecting Lasers & Grid */}
+      <CyberParallaxBackground />
+
+      {/* Sticky Top Cyber Navigation */}
+      <Navbar />
+      
+      {/* Main Content Sections with Cyber Theme */}
+      <main className="relative z-10">
         <Hero />
         <About />
         <Experience />
+        <TechnicalExperience />
+        <Education />
+        <Certifications />
+        <Achievements />
+        <TechStack />
+        <AIJourney />
         <Skills />
         <Projects />
+        <Testimonials />
         <Contact />
       </main>
+      
+      {/* Cyber Telemetry Footer */}
       <Footer />
     </div>
   );

@@ -1,95 +1,155 @@
 import React, { useState, useEffect } from 'react';
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiDownload, FiTerminal } from 'react-icons/fi';
 
-const Navbar = ({ darkMode, setDarkMode }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
-      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
-      let current = '';
+
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
+
+      const sections = ['home', 'about', 'experience', 'technical-experience', 'skills', 'projects', 'testimonials', 'contact'];
+      let current = 'home';
       for (const section of sections) {
         const element = document.getElementById(section);
-        if (element && window.scrollY >= element.offsetTop - 200) {
-          current = section;
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 180) current = section;
         }
       }
       setActiveSection(current);
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'about' },
-    { name: 'Experience', to: 'experience' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Contact', to: 'contact' },
+    { name: 'PROJECTS',   to: 'projects' },
+    { name: 'EXPERIENCE', to: 'experience' },
+    { name: 'SKILLS',     to: 'skills' },
+    { name: 'ABOUT',      to: 'about' },
+    { name: 'CONTACT',    to: 'contact' },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm' : 'py-6 bg-transparent'}`}>
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#home" className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Muthuvel V<span className="text-brand-600">.</span>
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'py-3.5 bg-[#07080a]/90 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
+          : 'py-5 bg-transparent'
+      }`}
+    >
+      {/* Scroll Progress Bar — Neon Lime */}
+      <div
+        className="absolute top-0 left-0 h-[2px] bg-[#ccff00] shadow-[0_0_8px_#ccff00] transition-all duration-75"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center max-w-7xl">
+        {/* Logo / Identifier matching MARCUS_CHEN */}
+        <a
+          href="#home"
+          className="group font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-white flex items-center hover:text-[#ccff00] transition-colors"
+        >
+          <span className="text-white group-hover:text-[#ccff00] transition-colors">MUTHUVEL</span>
+          <span className="text-[#ccff00]">_</span>
+          <span className="text-neutral-400 group-hover:text-white transition-colors">V</span>
         </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={`#${link.to}`}
-              className={`relative group ${activeSection === link.to ? 'text-brand-600 dark:text-brand-400 font-medium' : 'text-gray-600 dark:text-gray-300'} hover:text-brand-600 dark:hover:text-brand-400 cursor-pointer transition-colors py-1`}
-            >
-              {link.name}
-              <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-brand-600 transform origin-left transition-transform duration-300 ${activeSection === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
-            </a>
-          ))}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          >
-            {darkMode ? <FiSun size={20} className="text-yellow-500" /> : <FiMoon size={20} className="text-blue-500" />}
-          </button>
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex items-center space-x-9">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.to;
+            return (
+              <a
+                key={link.name}
+                href={`#${link.to}`}
+                className={`relative py-1 font-mono text-xs uppercase tracking-[0.22em] transition-all duration-200 ${
+                  isActive
+                    ? 'text-[#ccff00] font-semibold drop-shadow-[0_0_8px_rgba(204,255,0,0.6)]'
+                    : 'text-neutral-400 hover:text-[#ccff00]'
+                }`}
+              >
+                {link.name}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-[#ccff00] shadow-[0_0_6px_#ccff00]" />
+                )}
+              </a>
+            );
+          })}
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        {/* Right CTA / Resume Badge matching resume_v4.pdf */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="/muthuvel_resume.docx"
+            download="Muthuvel_Resume.docx"
+            className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#11141c]/90 hover:bg-[#ccff00]/10 border border-neutral-700/70 hover:border-[#ccff00]/60 text-neutral-300 hover:text-[#ccff00] font-mono text-xs tracking-wider transition-all duration-200 shadow-sm hover:shadow-[0_0_15px_rgba(204,255,0,0.2)]"
           >
-            {darkMode ? <FiSun size={20} className="text-yellow-500" /> : <FiMoon size={20} className="text-blue-500" />}
-          </button>
-          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 dark:text-gray-300">
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ccff00] animate-pulse" />
+            <span>resume_v4.pdf</span>
+            <FiDownload size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-y-0.5 transition-all" />
+          </a>
+        </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <div className="md:hidden flex items-center gap-3">
+          <a
+            href="/muthuvel_resume.docx"
+            download="Muthuvel_Resume.docx"
+            className="px-2.5 py-1 rounded-full bg-[#11141c] border border-neutral-700 text-neutral-300 font-mono text-[10px] tracking-wider"
+          >
+            resume_v4.pdf
+          </a>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 rounded-lg bg-[#11141c] text-neutral-300 border border-neutral-800 hover:border-[#ccff00]/50 hover:text-[#ccff00] transition-colors"
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <FiX size={18} /> : <FiMenu size={18} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-4 px-6 flex flex-col space-y-4">
+      {/* Mobile Drawer */}
+      <div
+        className={`md:hidden fixed left-0 w-full bg-[#07080a]/95 backdrop-blur-xl border-b border-neutral-800 transition-all duration-300 ease-in-out ${
+          isOpen ? 'top-[58px] opacity-100 pointer-events-auto' : '-top-[400px] opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="px-6 py-6 flex flex-col space-y-4">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={`#${link.to}`}
               onClick={() => setIsOpen(false)}
-              className={`relative group inline-block w-max ${activeSection === link.to ? 'text-brand-600' : 'text-gray-600 dark:text-gray-300'} hover:text-brand-600 text-lg cursor-pointer block pb-1`}
+              className={`font-mono text-sm tracking-[0.2em] py-2 transition-colors flex items-center justify-between border-b border-neutral-800/60 ${
+                activeSection === link.to ? 'text-[#ccff00]' : 'text-neutral-400 hover:text-white'
+              }`}
             >
-              {link.name}
-              <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-brand-600 transform origin-left transition-transform duration-300 ${activeSection === link.to ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+              <span>{link.name}</span>
+              {activeSection === link.to && <span className="text-xs text-[#ccff00]">● ACTIVE</span>}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center justify-center w-full py-2.5 font-mono text-xs tracking-widest text-black bg-[#ccff00] hover:bg-[#b8e600] rounded-lg font-bold transition-all mt-2"
+          >
+            INITIATE_CONTACT // →
+          </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

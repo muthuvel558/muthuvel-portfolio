@@ -1,46 +1,94 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiFileText, FiArrowUp, FiMapPin } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiMapPin, FiActivity } from 'react-icons/fi';
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const quickLinks = [
+    { label: 'HOME', to: 'home' },
+    { label: 'EXPERIENCE', to: 'experience' },
+    { label: 'PROJECTS', to: 'projects' },
+    { label: 'SKILLS', to: 'skills' },
+    { label: 'CONTACT', to: 'contact' },
+  ];
+
+  const expertise = [
+    'Computer Vision Models',
+    'Deep Neural Networks',
+    'Machine Learning Pipelines',
+    'Full Stack AI Web Apps',
+  ];
+
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 relative overflow-hidden">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="container mx-auto px-6 md:px-12"
-      >
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
-          {/* Brand & Tagline */}
-          <div className="w-full md:w-1/3">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Muthuvel V<span className="text-brand-600">.</span>
+    <footer className="bg-[#050608] w-full pt-20 pb-12 relative overflow-hidden border-t border-white/[0.08]">
+      {/* Top neon laser beam line */}
+      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-[#ccff00] shadow-[0_0_12px_#ccff00]" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        {/* Top telemetry bar */}
+        <div className="flex flex-wrap items-center justify-between pb-8 mb-12 border-b border-white/[0.06] font-mono text-xs text-neutral-400">
+          <div className="flex items-center gap-2 text-[#ccff00]">
+            <FiActivity className="animate-pulse" />
+            <span>SYSTEM_ALL_OK // TELEMETRY_ACTIVE</span>
+          </div>
+          <div className="text-neutral-500">
+            SEC_SESSION: 0x89EDB3F0 // ENCRYPTED
+          </div>
+        </div>
+
+        {/* Top section: brand + columns */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-14">
+
+          {/* Brand */}
+          <div className="w-full md:w-1/3 space-y-4">
+            <h2 className="text-2xl font-black text-white font-mono tracking-tight flex items-center gap-1">
+              <span>MUTHUVEL</span>
+              <span className="text-[#ccff00]">_</span>
+              <span className="text-neutral-400">V</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-md">
-              AI & Full Stack Developer passionate about building intelligent applications and modern web experiences.
+            <p className="text-neutral-400 leading-relaxed text-xs max-w-xs font-normal">
+              Architecting intelligent digital voids and crafting high-performance AI web experiences.
             </p>
+            {/* Social row */}
+            <div className="flex gap-3 pt-2">
+              {[
+                { icon: <FiGithub size={16} />,   href: 'https://github.com/muthuvel558', label: 'GitHub' },
+                { icon: <FiLinkedin size={16} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+                { icon: <FiMail size={16} />,     href: 'mailto:muthuvelv3032@gmail.com', label: 'Email' },
+              ].map((s, i) => (
+                <a
+                  key={i}
+                  href={s.href}
+                  aria-label={s.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-lg bg-[#11141c] hover:bg-[#ccff00] text-neutral-400 hover:text-black border border-neutral-800 hover:border-[#ccff00] transition-all duration-200"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Columns */}
-          <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {/* Link columns */}
+          <div className="w-full md:w-2/3 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 border-b-2 border-brand-600 inline-block pb-1">Quick Links</h3>
-              <ul className="space-y-3">
-                {['Home', 'About', 'Experience', 'Projects', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <a href={`#${item.toLowerCase()}`} className="text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors inline-flex items-center group">
-                      <span className="w-0 h-0.5 bg-brand-600 mr-0 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
-                      {item}
+              <h3 className="font-mono text-xs font-bold text-white uppercase tracking-widest mb-5">
+                // NAVIGATION
+              </h3>
+              <ul className="space-y-2.5 font-mono text-xs">
+                {quickLinks.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={`#${item.to}`}
+                      className="text-neutral-400 hover:text-[#ccff00] transition-colors inline-flex items-center gap-1.5"
+                    >
+                      <span className="text-[#ccff00]">&gt;</span>
+                      <span>{item.label}</span>
                     </a>
                   </li>
                 ))}
@@ -49,11 +97,14 @@ const Footer = () => {
 
             {/* Expertise */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 border-b-2 border-brand-600 inline-block pb-1">Expertise</h3>
-              <ul className="space-y-3">
-                {['Web Development', 'Artificial Intelligence', 'Machine Learning', 'Data Science'].map((item) => (
-                  <li key={item} className="text-gray-600 dark:text-gray-400">
-                    {item}
+              <h3 className="font-mono text-xs font-bold text-white uppercase tracking-widest mb-5">
+                // CAPABILITIES
+              </h3>
+              <ul className="space-y-2.5 font-mono text-xs text-neutral-400">
+                {expertise.map((item) => (
+                  <li key={item} className="flex items-center gap-1.5">
+                    <span className="w-1 h-1 bg-[#ccff00] rounded-full" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -61,69 +112,60 @@ const Footer = () => {
 
             {/* Connect */}
             <div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 border-b-2 border-brand-600 inline-block pb-1">Connect</h3>
-              <ul className="space-y-4">
-                <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                    <FiGithub size={20} />
-                    <span>GitHub</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                    <FiLinkedin size={20} />
-                    <span>LinkedIn</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:your-email@example.com" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                    <FiMail size={20} />
-                    <span>Email</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
-                    <FiFileText size={20} />
-                    <span>Resume</span>
-                  </a>
-                </li>
+              <h3 className="font-mono text-xs font-bold text-white uppercase tracking-widest mb-5">
+                // NETWORK
+              </h3>
+              <ul className="space-y-2.5 font-mono text-xs">
+                {[
+                  { label: 'GitHub Repos', href: 'https://github.com/muthuvel558' },
+                  { label: 'LinkedIn Node', href: 'https://linkedin.com' },
+                  { label: 'Email Channel', href: 'mailto:muthuvelv3032@gmail.com' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-400 hover:text-[#ccff00] transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center py-8 border-t border-gray-200 dark:border-gray-800 gap-4">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center text-gray-600 dark:text-gray-400">
-            <div className="flex items-center gap-2">
-              <FiMapPin className="text-brand-600" />
-              <span>Tamil Nadu, India</span>
+        {/* Divider */}
+        <div className="border-t border-white/[0.06] pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center font-mono text-xs text-neutral-500">
+              <div className="flex items-center gap-2">
+                <FiMapPin className="text-[#ccff00]" size={12} />
+                <span>Vedasandur, Dindigul, Tamil Nadu</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FiMail className="text-[#ccff00]" size={12} />
+                <span>muthuvelv3032@gmail.com</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <FiMail className="text-brand-600" />
-              <span>your-email@example.com</span>
-            </div>
+
+            <button
+              onClick={scrollToTop}
+              className="p-3 bg-[#11141c] hover:bg-[#ccff00] text-neutral-400 hover:text-black border border-neutral-800 hover:border-[#ccff00] rounded-xl transition-all duration-200 group shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+              aria-label="Back to top"
+            >
+              <FiArrowUp size={16} className="group-hover:-translate-y-0.5 transition-transform" />
+            </button>
           </div>
 
-          <button 
-            onClick={scrollToTop}
-            className="p-3 bg-brand-100 dark:bg-brand-900/30 text-brand-600 hover:bg-brand-600 hover:text-white rounded-full transition-all duration-300 transform hover:-translate-y-1 group"
-            aria-label="Back to top"
-          >
-            <FiArrowUp size={20} className="group-hover:animate-bounce" />
-          </button>
+          {/* Copyright */}
+          <div className="text-center mt-8 font-mono text-[11px] text-neutral-600">
+            © 2026 MUTHUVEL V // ALL SYSTEMS OPERATIONAL.
+          </div>
         </div>
-
-        {/* Copyright */}
-        <div className="text-center mt-8 pt-8 border-t border-gray-200 dark:border-gray-800/50">
-          <p className="text-gray-500 dark:text-gray-500 mb-2">
-            © 2026 Muthuvel V. All Rights Reserved.
-          </p>
-          <p className="text-gray-500 dark:text-gray-500 text-sm">
-            Designed & Developed with care using React & Tailwind CSS.
-          </p>
-        </div>
-      </motion.div>
+      </div>
     </footer>
   );
 };

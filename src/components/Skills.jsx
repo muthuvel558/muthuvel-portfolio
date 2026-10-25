@@ -1,100 +1,157 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaNodeJs, FaGithub, FaGitAlt, FaFigma 
+import {
+  FaPython, FaJs, FaReact, FaGithub, FaAws, FaBrain, FaRegLightbulb,
 } from 'react-icons/fa';
-import { 
-  SiTailwindcss, SiNextdotjs, SiExpress, SiFlask, SiMysql, SiMongodb,
-  SiNumpy, SiPandas, SiTensorflow, SiOpencv, SiScikitlearn, SiGooglecolab
+import {
+  SiCplusplus, SiTensorflow, SiOpencv, SiScikitlearn, SiPandas,
+  SiFlask, SiMysql, SiGooglecolab, SiFigma,
 } from 'react-icons/si';
-import { VscGraphLine } from 'react-icons/vsc';
-import { DiVisualstudio } from 'react-icons/di';
+import { FiBarChart2, FiLayers, FiTool, FiStar, FiDatabase, FiCpu } from 'react-icons/fi';
+
+const categories = [
+  {
+    title: 'Programming Languages',
+    code: 'MOD_LANG',
+    icon: <FiCpu size={24} />,
+    badges: [
+      { label: 'Python', icon: <FaPython /> },
+      { label: 'C++', icon: <SiCplusplus /> },
+      { label: 'SQL', icon: <SiMysql /> },
+      { label: 'JavaScript', icon: <FaJs /> },
+    ],
+  },
+  {
+    title: 'Machine Learning',
+    code: 'MOD_ML',
+    icon: <SiScikitlearn size={24} />,
+    badges: [
+      { label: 'Regression', icon: <FiBarChart2 /> },
+      { label: 'Classification', icon: <FiBarChart2 /> },
+      { label: 'Clustering', icon: <FiBarChart2 /> },
+      { label: 'Feature Engineering', icon: <FiStar /> },
+      { label: 'Model Evaluation', icon: <SiScikitlearn /> },
+    ],
+  },
+  {
+    title: 'Deep Learning & Vision',
+    code: 'MOD_DL',
+    icon: <FaBrain size={24} />,
+    badges: [
+      { label: 'TensorFlow', icon: <SiTensorflow /> },
+      { label: 'Keras', icon: <FaBrain /> },
+      { label: 'OpenCV', icon: <SiOpencv /> },
+      { label: 'CNN Architectures', icon: <FaBrain /> },
+      { label: 'Transfer Learning', icon: <FiLayers /> },
+    ],
+  },
+  {
+    title: 'Data Analysis & BI',
+    code: 'MOD_DATA',
+    icon: <FiBarChart2 size={24} />,
+    badges: [
+      { label: 'Pandas', icon: <SiPandas /> },
+      { label: 'NumPy', icon: <FiBarChart2 /> },
+      { label: 'Matplotlib', icon: <FiBarChart2 /> },
+      { label: 'Power BI', icon: <FiBarChart2 /> },
+    ],
+  },
+  {
+    title: 'Databases & Storage',
+    code: 'MOD_DB',
+    icon: <FiDatabase size={24} />,
+    badges: [
+      { label: 'MySQL', icon: <SiMysql /> },
+      { label: 'MongoDB', icon: <FiDatabase /> },
+    ],
+  },
+  {
+    title: 'Developer Tools',
+    code: 'MOD_TOOLS',
+    icon: <FiTool size={24} />,
+    badges: [
+      { label: 'Git & GitHub', icon: <FaGithub /> },
+      { label: 'Jupyter Notebook', icon: <SiGooglecolab /> },
+      { label: 'Google Colab', icon: <SiGooglecolab /> },
+      { label: 'VS Code', icon: <FiTool /> },
+    ],
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'HTML5', icon: <FaHtml5 />, color: 'text-orange-500' },
-        { name: 'CSS3', icon: <FaCss3Alt />, color: 'text-blue-500' },
-        { name: 'JavaScript', icon: <FaJs />, color: 'text-yellow-400' },
-        { name: 'React.js', icon: <FaReact />, color: 'text-cyan-400' },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: 'text-teal-400' },
-        { name: 'Next.js', icon: <SiNextdotjs />, color: 'text-black dark:text-white' }
-      ]
-    },
-    {
-      title: 'Backend',
-      skills: [
-        { name: 'Python', icon: <FaPython />, color: 'text-blue-500' },
-        { name: 'Node.js', icon: <FaNodeJs />, color: 'text-green-500' },
-        { name: 'Express.js', icon: <SiExpress />, color: 'text-gray-500 dark:text-gray-300' },
-        { name: 'Flask', icon: <SiFlask />, color: 'text-black dark:text-white' },
-        { name: 'MySQL', icon: <SiMysql />, color: 'text-blue-600' },
-        { name: 'MongoDB', icon: <SiMongodb />, color: 'text-green-600' }
-      ]
-    },
-    {
-      title: 'AI & Data Science',
-      skills: [
-        { name: 'NumPy', icon: <SiNumpy />, color: 'text-blue-400' },
-        { name: 'Pandas', icon: <SiPandas />, color: 'text-brand-700 dark:text-brand-400' },
-        { name: 'Matplotlib', icon: <VscGraphLine />, color: 'text-blue-500' },
-        { name: 'Scikit-Learn', icon: <SiScikitlearn />, color: 'text-orange-500' },
-        { name: 'TensorFlow', icon: <SiTensorflow />, color: 'text-orange-400' },
-        { name: 'OpenCV', icon: <SiOpencv />, color: 'text-red-500' }
-      ]
-    },
-    {
-      title: 'Tools',
-      skills: [
-        { name: 'Git', icon: <FaGitAlt />, color: 'text-orange-600' },
-        { name: 'GitHub', icon: <FaGithub />, color: 'text-black dark:text-white' },
-        { name: 'VS Code', icon: <DiVisualstudio />, color: 'text-blue-500' },
-        { name: 'Google Colab', icon: <SiGooglecolab />, color: 'text-yellow-500' },
-        { name: 'Figma', icon: <FaFigma />, color: 'text-pink-500' }
-      ]
-    }
-  ];
-
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900/50">
-      <div className="container mx-auto px-6 md:px-12">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white"
-        >
-          Skills<span className="text-brand-600">.</span>
-        </motion.h2>
+    <section id="skills" className="py-28 relative">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category, index) => (
+        {/* Section Heading */}
+        <div className="mb-20">
+          <div className="font-mono text-xs font-semibold tracking-[0.25em] text-[#ccff00] uppercase mb-2 flex items-center gap-2">
+            <span>// 08. CAPABILITY_MATRIX</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black text-white font-display tracking-tight flex items-center gap-1">
+            <span>SKILLS &amp; CAPABILITIES</span>
+            <span className="text-[#ccff00]">_</span>
+          </h2>
+          <div className="w-16 h-[2px] bg-[#ccff00] mt-4 shadow-[0_0_10px_#ccff00]" />
+        </div>
+
+        {/* Cyber Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((cat, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={cat.title}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700"
+              whileHover={{ y: -4 }}
+              className="p-6 md:p-8 rounded-2xl bg-[#0c0e14]/90 border border-white/[0.08] hover:border-[#ccff00]/40 transition-all duration-300 relative group overflow-hidden"
             >
-              <h3 className="text-xl font-bold mb-6 text-brand-600 dark:text-brand-400 border-b-2 border-brand-100 dark:border-brand-900/30 pb-2">{category.title}</h3>
-              <ul className="space-y-4">
-                {category.skills.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-300 font-medium group">
-                    <span className={`text-2xl transition-transform transform group-hover:scale-110 ${skill.color}`}>
-                      {skill.icon}
-                    </span>
-                    <span className="group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                      {skill.name}
-                    </span>
-                  </li>
+              {/* Corner brackets */}
+              <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-[#ccff00]/60" />
+              <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-[#ccff00]/60" />
+
+              {/* Header with code & icon */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-12 h-12 rounded-xl bg-[#11141c] text-[#ccff00] border border-neutral-800 flex items-center justify-center shadow-[0_0_12px_rgba(204,255,0,0.15)] group-hover:border-[#ccff00]/40 transition-colors">
+                  {cat.icon}
+                </div>
+                <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                  [{cat.code}]
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-base font-bold text-white font-mono mb-4 group-hover:text-[#ccff00] transition-colors">
+                {cat.title}
+              </h3>
+
+              {/* Badges */}
+              <div className="flex flex-wrap gap-2">
+                {cat.badges.map((badge, j) => (
+                  <span
+                    key={j}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#11141c] text-neutral-300 hover:text-white hover:border-[#ccff00]/40 font-mono text-xs border border-neutral-800 transition-all duration-200"
+                  >
+                    <span className="text-[#ccff00] text-sm">{badge.icon}</span>
+                    <span>{badge.label}</span>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

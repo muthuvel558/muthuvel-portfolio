@@ -1,121 +1,203 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { FiCpu, FiLayers, FiTerminal, FiZap } from 'react-icons/fi';
 
-const stats = [
-  { value: '7+', label: 'Projects Built' },
-  { value: '3', label: 'Internships' },
-  { value: '2+', label: 'Years Learning' },
-];
+const AnimatedCounter = ({ value, duration = 2 }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  
+  const numericValue = parseInt(value.replace(/[^0-9]/g, ''), 10);
+  const suffix = value.replace(/[0-9]/g, '');
 
-const focuses = [
-  {
-    icon: '🤖',
-    title: 'Artificial Intelligence',
-    desc: 'Designing and training ML models for real-world prediction and classification tasks.',
-  },
-  {
-    icon: '🌐',
-    title: 'Full Stack Development',
-    desc: 'Building end-to-end web applications with modern frameworks and clean UI/UX.',
-  },
-  {
-    icon: '📊',
-    title: 'Data Science',
-    desc: 'Extracting insights from data using Python, Pandas, and statistical techniques.',
-  },
-];
+  useEffect(() => {
+    if (!inView) return;
+
+    let start = 0;
+    const end = numericValue;
+    const totalMiliseconds = duration * 1000;
+    const stepTime = Math.max(Math.floor(totalMiliseconds / end), 20);
+    
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [inView, numericValue, duration]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+};
 
 const About = () => {
+  const stats = [
+    { value: '15+', label: 'Projects Built' },
+    { value: '3',   label: 'Internships' },
+    { value: '300+', label: 'Solved Problems' },
+    { value: '25+', label: 'Tech Stack' },
+  ];
+
+  const objectives = [
+    {
+      title: 'ML & Deep Neural Networks',
+      desc: 'Developing specialized vision architectures, LLM integrations, and robust predictive pipelines.',
+      icon: <FiCpu className="text-[#ccff00]" size={20} />,
+    },
+    {
+      title: 'Full Stack Integration',
+      desc: 'Creating end-to-end user interfaces and building fast APIs for hosting and consuming ML models.',
+      icon: <FiLayers className="text-[#ccff00]" size={20} />,
+    },
+  ];
+
   return (
-    <section id="about" className="py-24 bg-gray-50 dark:bg-gray-900/50">
-      <div className="container mx-auto px-6 md:px-12 max-w-6xl">
-
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-3">
-            Who I Am
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-            About Me<span className="text-brand-600">.</span>
+    <section id="about" className="py-28 relative">
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+        
+        {/* Section Heading matching Marcus Chen style */}
+        <div className="mb-20">
+          <div className="font-mono text-xs font-semibold tracking-[0.25em] text-[#ccff00] uppercase mb-2 flex items-center gap-2">
+            <span>// 01. PROFILE_LOGS</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black text-white font-display tracking-tight flex items-center gap-1">
+            <span>ABOUT ME</span>
+            <span className="text-[#ccff00]">_</span>
           </h2>
-        </motion.div>
+          <div className="w-16 h-[2px] bg-[#ccff00] mt-4 shadow-[0_0_10px_#ccff00]" />
+        </div>
 
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-
-          {/* Left — Bio */}
+        {/* Grid Contents */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Bio description & counter stats */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-6"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-5">
-              Muthuvel V
+            <div className="font-mono text-xs text-neutral-400 tracking-wider flex items-center gap-2 mb-2">
+              <span className="text-[#ccff00]">&gt;</span>
+              <span>IDENTITY: MUTHUVEL_V // AI_ML_ENGINEER</span>
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-bold text-white font-display tracking-tight">
+              Aspiring AI / ML Engineer &amp; Full Stack Architect
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-              I'm an aspiring{' '}
-              <span className="font-semibold text-brand-600 dark:text-brand-400">
-                AI &amp; Full Stack Developer
-              </span>{' '}
-              with a strong foundation in machine learning, computer vision, and modern web technologies. I take complex problems and translate them into clean, functional solutions.
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-              Through internships in embedded systems, AI &amp; robotics, and data science, I've gained hands-on experience across the full technology stack — from hardware-level programming to deploying web applications.
+            
+            <p className="text-neutral-400 leading-relaxed text-base font-normal">
+              Motivated Artificial Intelligence and Data Science undergraduate with a strong foundation in Machine Learning, Deep Learning, and Data Analysis. Skilled in developing AI solutions using Python, TensorFlow, PyTorch, OpenCV, and Scikit-learn through academic and personal projects.
             </p>
 
-            {/* Stats row */}
-            <div className="flex gap-4">
-              {stats.map((s, i) => (
-                <motion.div
+            <p className="text-neutral-400 leading-relaxed text-base font-normal">
+              Passionate about solving real-world problems using AI and eager to contribute as an AI/ML Engineer or Data Scientist. I build end-to-end ML pipelines, predictive models, and NLP applications — sharing work on GitHub and LinkedIn.
+            </p>
+
+            {/* Counters Row - HUD Cyber Style */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+              {stats.map((stat, i) => (
+                <div 
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * i }}
-                  className="flex flex-col items-center justify-center px-5 py-4 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 min-w-[90px]"
+                  className="p-5 rounded-xl bg-[#0c0e14]/90 border border-white/[0.08] hover:border-[#ccff00]/40 transition-all duration-300 text-center relative group"
                 >
-                  <p className="text-3xl font-black text-brand-600 dark:text-brand-400">{s.value}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium mt-1 text-center">{s.label}</p>
-                </motion.div>
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#ccff00]/60" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#ccff00]/60" />
+                  
+                  <p className="text-3xl font-black font-mono text-[#ccff00] drop-shadow-[0_0_10px_rgba(204,255,0,0.3)]">
+                    <AnimatedCounter value={stat.value} />
+                  </p>
+                  <p className="text-[10px] font-mono font-medium text-neutral-400 mt-2 uppercase tracking-widest">
+                    {stat.label}
+                  </p>
+                </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right — Focus Areas */}
+          {/* Right Column: Focus Areas & Telemetry Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col gap-4"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5 space-y-6"
           >
-            {focuses.map((f, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * i }}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <div className="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-900/30 flex items-center justify-center text-xl flex-shrink-0">
-                  {f.icon}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{f.title}</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{f.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+            {/* Focus Areas Card with HUD framing */}
+            <div className="p-8 rounded-2xl bg-[#0c0e14]/90 border border-white/[0.08] relative overflow-hidden group hover:border-[#ccff00]/40 transition-all duration-300">
+              {/* Corner brackets */}
+              <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#ccff00]" />
+              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#ccff00]" />
+              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#ccff00]" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#ccff00]" />
+              
+              <div className="flex justify-between items-center mb-6">
+                <h4 className="font-mono text-xs font-bold text-neutral-300 uppercase tracking-[0.2em] flex items-center gap-2">
+                  <FiTerminal className="text-[#ccff00]" />
+                  <span>CORE_SPECIALIZATIONS</span>
+                </h4>
+                <span className="font-mono text-[10px] text-[#ccff00] bg-[#ccff00]/10 px-2 py-0.5 rounded border border-[#ccff00]/30">
+                  SYS.READY
+                </span>
+              </div>
 
+              <div className="space-y-6">
+                {objectives.map((obj, i) => (
+                  <div key={i} className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-lg bg-[#11141c] border border-neutral-800 flex items-center justify-center text-lg flex-shrink-0 group-hover:border-[#ccff00]/40 transition-colors">
+                      {obj.icon}
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-white text-sm font-mono tracking-wide">
+                        {obj.title}
+                      </h5>
+                      <p className="text-xs text-neutral-400 mt-1.5 leading-relaxed font-normal">
+                        {obj.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Strengths & Hobbies Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-5 rounded-xl bg-[#0c0e14]/90 border border-white/[0.08] hover:border-[#ccff00]/30 transition-all">
+                <h5 className="font-mono font-bold text-[#ccff00] text-[11px] uppercase tracking-wider mb-3">
+                  // STRENGTHS
+                </h5>
+                <ul className="text-xs text-neutral-400 space-y-2 font-mono">
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Analytical Thinking</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Quick Adapter</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Team Collaboration</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Problem Solver</li>
+                </ul>
+              </div>
+
+              <div className="p-5 rounded-xl bg-[#0c0e14]/90 border border-white/[0.08] hover:border-[#ccff00]/30 transition-all">
+                <h5 className="font-mono font-bold text-[#ccff00] text-[11px] uppercase tracking-wider mb-3">
+                  // INTERESTS
+                </h5>
+                <ul className="text-xs text-neutral-400 space-y-2 font-mono">
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Generative AI Models</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Edge IoT Devices</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Robotics Automation</li>
+                  <li className="flex items-center gap-2"><span className="w-1 h-1 bg-[#ccff00] rounded-full"/>Open Source Code</li>
+                </ul>
+              </div>
+            </div>
+
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
